@@ -1,0 +1,104 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Library Management API",
+      "description": "API for managing library books and members"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Books",
+        "description": "API for books"
+      },
+      {
+        "name": "Members",
+        "description": "API for members"
+      }
+    ],
+    "paths": {
+      "/books": {
+        "get": {
+          "tags": ["Books"],
+          "summary": "Get all books",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/members": {
+        "get": {
+          "tags": ["Members"],
+          "summary": "Get all members",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/members/borrow": {
+        "post": {
+          "tags": ["Members"],
+          "summary": "Borrow a book",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Member and Book information",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "memberCode": {
+                    "type": "string"
+                  },
+                  "bookCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/members/return": {
+        "post": {
+          "tags": ["Members"],
+          "summary": "Return a book",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Member and Book information",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "memberCode": {
+                    "type": "string"
+                  },
+                  "bookCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+    }
+  }
